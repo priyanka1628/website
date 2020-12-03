@@ -1,6 +1,2 @@
-FROM ubuntu:latest
-MAINTAINER NewstarCorporation
-RUN apt-get install httpd
-COPY index.html /var/www/html/
-CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
-EXPOSE 80
+FROM httpd:2.4
+ADD . /var/www/html/
