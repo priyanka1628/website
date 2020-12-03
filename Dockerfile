@@ -1,2 +1,6 @@
-FROM hshar/webapp
-ADD . /var/www/html
+FROM ubuntu:latest
+MAINTAINER NewstarCorporation
+RUN apt-get install httpd
+COPY index.html /var/www/html/
+CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
+EXPOSE 80
