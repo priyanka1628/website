@@ -1,5 +1,6 @@
-FROM ubuntu:latest
-RUN apt-get install httpd
-COPY index.html /var/www/html/
-CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
-EXPOSE 80
+FROM ubuntu 
+RUN apt-get update 
+RUN apt-get install –y apache2 
+RUN apt-get install –y apache2-utils
+ADD . /var/www/html
+EXPOSE 80 CMD [“apache2ctl”, “-D”, “FOREGROUND”]
