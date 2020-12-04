@@ -1,2 +1,5 @@
-FROM httpd:2.4
-COPY . /usr/local/apache2/htdocs/
+FROM ubuntu:latest
+RUN apt-get install httpd
+COPY index.html /var/www/html/
+CMD [“/usr/sbin/httpd”, “-D”, “FOREGROUND”]
+EXPOSE 80
